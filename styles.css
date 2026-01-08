@@ -1,31 +1,25 @@
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap');
 
-:root {
-  --bg: #ffffff;
-  --text: #222;
-  --muted: #666;
-  --accent: #111;
-  --border: #e6e6e6;
-  --container: 900px;
-  --space-s: 16px;
-  --space-m: 24px;
-  --space-l: 32px;
-  --space-xl: 48px;
-}
-
+/* Global */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   line-height: 1.7;
-  background: var(--bg);
-  color: var(--text);
-  padding-top: 70px;
+  background: #ffffff;
+  color: #222;
+  padding-top: 70px; /* offset for fixed header */
 }
 
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+/* Containers */
 .container {
-  max-width: var(--container);
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 var(--space-m);
+  padding: 0 24px;
 }
 
 /* Header */
@@ -35,7 +29,7 @@ body {
   width: 100%;
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #e6e6e6;
   z-index: 1000;
 }
 nav ul {
@@ -43,16 +37,32 @@ nav ul {
   display: flex;
   justify-content: center;
   margin: 0;
-  padding: var(--space-s) 0;
+  padding: 16px 0;
 }
-nav ul li { margin: 0 var(--space-m); }
+nav ul li { margin: 0 24px; }
 nav ul li a {
   text-decoration: none;
   font-weight: 600;
-  color: var(--text);
+  color: #222;
   transition: color 0.2s ease;
 }
-nav ul li a:hover { color: var(--muted); }
+nav ul li a:hover { color: #666; }
+
+/* Language Switcher */
+.language-switcher {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+.language-switcher img {
+  width: 30px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 /* Hero */
 .hero-media img {
@@ -61,39 +71,44 @@ nav ul li a:hover { color: var(--muted); }
   display: block;
 }
 .hero-content {
-  padding-top: var(--space-xl);
+  padding-top: 48px;
   text-align: center;
 }
 .headline {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: var(--space-m);
+  margin-bottom: 24px;
 }
 .dek {
   font-size: 1.25rem;
-  color: var(--muted);
-  margin-bottom: var(--space-m);
+  color: #666;
+  margin-bottom: 24px;
 }
 .meta {
   display: flex;
   justify-content: center;
-  gap: var(--space-m);
+  gap: 24px;
   font-size: 0.95rem;
-  color: var(--muted);
+  color: #666;
 }
 
 /* Article */
 .article {
-  padding: var(--space-xl) 0;
+  padding: 48px 0;
 }
 .lead {
   font-size: 1.25rem;
-  margin-bottom: var(--space-l);
+  margin-bottom: 32px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin: 48px 0 24px 0;
 }
 .pull-quote {
-  margin: var(--space-xl) 0;
-  padding: var(--space-l);
-  border-left: 4px solid var(--accent);
+  margin: 48px 0;
+  padding: 32px;
+  border-left: 4px solid #111;
   background: #fafafa;
 }
 .pull-quote p {
@@ -102,29 +117,74 @@ nav ul li a:hover { color: var(--muted); }
   margin: 0;
 }
 .inline-figure {
-  margin: var(--space-xl) 0;
+  margin: 48px 0;
 }
 .inline-figure img {
   width: 100%;
-  border: 1px solid var(--border);
+  border: 1px solid #e6e6e6;
 }
 .inline-figure figcaption {
   font-size: 0.95rem;
-  color: var(--muted);
-  margin-top: var(--space-s);
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin: var(--space-xl) 0 var(--space-m) 0;
+  color: #666;
+  margin-top: 16px;
 }
 
-/* Contact & Payment */
+/* Contact */
 .contact-box {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-m);
+  gap: 24px;
   justify-content: center;
 }
 .contact-item {
-  background: #fafafa
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  width: 260px;
+}
+.copy-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.copy-btn:hover { background: #666; }
+
+/* Payment Methods */
+.payment-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+.payment-logos img {
+  width: 140px;
+  height: 90px;
+  object-fit: contain;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #e6e6e6;
+  text-align: center;
+  padding: 32px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul { flex-wrap: wrap; }
+  nav ul li { margin: 8px; }
+  .meta { flex-wrap: wrap; }
+}
