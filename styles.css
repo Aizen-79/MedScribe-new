@@ -1,25 +1,31 @@
-/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap');
 
-/* Global */
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --muted: #666;
+  --accent: #111;
+  --border: #e6e6e6;
+  --container: 900px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 32px;
+  --space-xl: 48px;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   line-height: 1.7;
-  background: #ffffff;
-  color: #222;
-  padding-top: 70px; /* offset for fixed header */
+  background: var(--bg);
+  color: var(--text);
+  padding-top: 70px;
 }
 
-h1, h2, h3 {
-  margin-top: 0;
-}
-
-/* Containers */
 .container {
-  max-width: 900px;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--space-m);
 }
 
 /* Header */
@@ -29,24 +35,32 @@ h1, h2, h3 {
   width: 100%;
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid var(--border);
   z-index: 1000;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  height: 48px;
+  width: auto;
 }
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
   margin: 0;
-  padding: 16px 0;
+  padding: var(--space-s) 0;
 }
-nav ul li { margin: 0 24px; }
+nav ul li { margin: 0 var(--space-m); }
 nav ul li a {
   text-decoration: none;
   font-weight: 600;
-  color: #222;
+  color: var(--text);
   transition: color 0.2s ease;
 }
-nav ul li a:hover { color: #666; }
+nav ul li a:hover { color: var(--muted); }
 
 /* Language Switcher */
 .language-switcher {
@@ -71,120 +85,49 @@ nav ul li a:hover { color: #666; }
   display: block;
 }
 .hero-content {
-  padding-top: 48px;
+  padding-top: var(--space-xl);
   text-align: center;
+}
+.hero-logo {
+  height: 100px;
+  width: auto;
+  margin-bottom: var(--space-m);
 }
 .headline {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 24px;
+  margin-bottom: var(--space-m);
 }
 .dek {
   font-size: 1.25rem;
-  color: #666;
-  margin-bottom: 24px;
+  color: var(--muted);
+  margin-bottom: var(--space-m);
 }
 .meta {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: var(--space-m);
   font-size: 0.95rem;
-  color: #666;
+  color: var(--muted);
 }
 
 /* Article */
 .article {
-  padding: 48px 0;
+  padding: var(--space-xl) 0;
 }
 .lead {
   font-size: 1.25rem;
-  margin-bottom: 32px;
+  margin-bottom: var(--space-l);
 }
 .section-title {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
-  margin: 48px 0 24px 0;
+  margin: var(--space-xl) 0 var(--space-m) 0;
 }
 .pull-quote {
-  margin: 48px 0;
-  padding: 32px;
-  border-left: 4px solid #111;
+  margin: var(--space-xl) 0;
+  padding: var(--space-l);
+  border-left: 4px solid var(--accent);
   background: #fafafa;
 }
 .pull-quote p {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  margin: 0;
-}
-.inline-figure {
-  margin: 48px 0;
-}
-.inline-figure img {
-  width: 100%;
-  border: 1px solid #e6e6e6;
-}
-.inline-figure figcaption {
-  font-size: 0.95rem;
-  color: #666;
-  margin-top: 16px;
-}
-
-/* Contact */
-.contact-box {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-}
-.contact-item {
-  background: #fafafa;
-  border: 1px solid #e6e6e6;
-  border-radius: 6px;
-  padding: 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  width: 260px;
-}
-.copy-btn {
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-}
-.copy-btn:hover { background: #666; }
-
-/* Payment Methods */
-.payment-logos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-}
-.payment-logos img {
-  width: 140px;
-  height: 90px;
-  object-fit: contain;
-  background: #fff;
-  padding: 10px;
-  border: 1px solid #e6e6e6;
-  border-radius: 6px;
-}
-
-/* Footer */
-.site-footer {
-  border-top: 1px solid #e6e6e6;
-  text-align: center;
-  padding: 32px 0;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  nav ul { flex-wrap: wrap; }
-  nav ul li { margin: 8px; }
-  .meta { flex-wrap: wrap; }
-}
