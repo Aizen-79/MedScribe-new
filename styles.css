@@ -122,4 +122,9 @@ nav ul li a:hover { color: var(--muted); }
 /* Contact & Payment */
 .contact-box {
   display: flex;
-  flex
+  flex-wrap: wrap;
+  gap: var(--space-m);
+  justify-content: center;
+}
+.contact-item {
+  background: #fafafa
