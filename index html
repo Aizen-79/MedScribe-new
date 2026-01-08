@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedScribe - Medical & Dental Research and Thesis Services</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <img src="https://flagcdn.com/w40/gb.png" alt="English" onclick="setLanguage('en')" />
+    <img src="https://flagcdn.com/w40/sa.png" alt="Arabic" onclick="setLanguage('ar')" />
+  </div>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+        <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+        <li><a href="#about" data-en="About Us" data-ar="من نحن">About Us</a></li>
+        <li><a href="#contact" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section id="home">
+    <h1 data-en="MedScribe" data-ar="ميدسكرايب">MedScribe</h1>
+    <p data-en="Your trusted partner for medical and dental research, thesis writing, assignments and presentations."
+       data-ar="شريكك الموثوق في مجال الأبحاث الطبية وكتابة الأطروحات والمهام الدراسية والعروض التقديمية">
+       Your trusted partner for medical and dental research, thesis writing, assignments and presentations.
+    </p>
+    <a href="#services" class="cta-button" data-en="Explore Our Services" data-ar="استعرض خدماتنا">Explore Our Services</a>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+
+    <div class="service-item">
+      <h3 data-en="MSc & PhD Thesis Protocols and Researches" data-ar="بروتوكولات وأبحاث رسائل الماجستير و الدكتوراة">MSc & PhD Thesis Protocols and Researches</h3>
+      <p>We provide highly-precise and scientifically rigorous research protocols tailored to meet your specific needs...</p>
+    </div>
+
+    <div class="service-item">
+      <h3>MSc & PhD Thesis</h3>
+      <p>We provide comprehensive support for Master of Science and Doctor of Philosophy thesis projects...</p>
+    </div>
+
+    <div class="service-item">
+      <h3>Medical & Dental Assignments</h3>
+      <p>We offer a range of services for medical and dental students and professionals who need help...</p>
+    </div>
+
+    <div class="service-item">
+      <h3>PowerPoint and Poster Presentations</h3>
+      <p>Presenting your medical or dental research, thesis, or clinical case study through a well-crafted presentation...</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a dedicated team of medical & dental professionals, committed to providing comprehensive scientific research...</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+      <div class="contact-item">
+        <p>+201018998289</p>
+        <button class="copy-btn" onclick="copyPhoneNumber('+201018998289')">Copy</button>
+      </div>
+      <div class="contact-item">
+        <p>+201120311258</p>
+        <button class="copy-btn" onclick="copyPhoneNumber('+201120311258')">Copy</button>
+      </div>
+      <div class="contact-item">
+        <p>+201063152783</p>
+        <button class="copy-btn" onclick="copyPhoneNumber('+201063152783')">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Methods -->
+  <section id="payment-methods">
+    <h2>Payment Methods</h2>
+    <div class="payment-logos">
+      <img src="paypal.png" alt="Paypal logo" />
+      <img src="snb.png" alt="SNB Logo" />
+      <img src="instapay.png" alt="Instapay Logo" />
+      <img src="vodafone.png" alt="Vodafone Cash Logo" />
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MedScribe. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function copyPhoneNumber(phoneNumber) {
+      navigator.clipboard.writeText(phoneNumber).then(() => {
+        alert("Phone number copied to clipboard!");
+      });
+    }
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    }
+  </script>
+</body>
+</html>
